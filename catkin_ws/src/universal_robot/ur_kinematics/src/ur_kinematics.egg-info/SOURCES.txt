@@ -1,0 +1,7 @@
+setup.py
+src/ur_kinematics/__init__.py
+src/ur_kinematics/test_analytical_ik.py
+src/ur_kinematics.egg-info/PKG-INFO
+src/ur_kinematics.egg-info/SOURCES.txt
+src/ur_kinematics.egg-info/dependency_links.txt
+src/ur_kinematics.egg-info/top_level.txt

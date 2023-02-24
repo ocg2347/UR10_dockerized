@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/ocg2347/UR10_docker/catkin_ws/devel/setup.sh
