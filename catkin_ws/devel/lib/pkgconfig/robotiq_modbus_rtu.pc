@@ -1,8 +1,0 @@
-prefix=/home/ocg2347/UR10_docker/catkin_ws/devel
-
-Name: robotiq_modbus_rtu
-Description: Description of robotiq_modbus_rtu
-Version: 1.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: rospy
