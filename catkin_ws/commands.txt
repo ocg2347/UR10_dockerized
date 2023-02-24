@@ -1,0 +1,2 @@
+# first launch the ur10 driver:
+roslaunch ur_robot_driver ur10_bringup.launch robot_ip:=192.168.0.111 kinematics_config:=$(rospack find ur_calibration)/etc/ur10colors_calib.yaml

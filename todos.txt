@@ -1,0 +1,12 @@
+A. Communication-------------------------------------
+1. check if driver can connect to the robot
+2. check if rospy depends on ros.
+3. if 2()==yes, write a websocket server, else you are done with driver thing
+4. ft sensor, camera stuff, demo collection ... talk to alper and yigit
+
+B. Client-Side Utilities-----------------------------
+1. Gamepad control script refinement
+2. Gamepad control script refactory
+3. Publishing trajectory
+4. if 2()==yes write a client
+5. prevent reaching joint limits

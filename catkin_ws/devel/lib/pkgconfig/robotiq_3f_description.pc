@@ -1,0 +1,8 @@
+prefix=/home/ocg2347/UR10_docker/catkin_ws/devel
+
+Name: robotiq_3f_description
+Description: Description of robotiq_3f_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: robot_state_publisher rviz xacro joint_state_publisher
