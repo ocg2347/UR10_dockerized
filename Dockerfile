@@ -21,12 +21,18 @@ RUN source /opt/ros/noetic/setup.bash \
     && cd catkin_ws \
     && catkin_make
 
+RUN sudo ln -s /usr/bin/python3 /usr/bin/python
+
+RUN sudo apt-get install -y python3-pip
+
+# install pymodbus. in my pc: it is 2.0.0 and works fine
+RUN pip3 install pymodbus==2.0.0
+
 COPY ur10colors_calibration.yaml .
 
 COPY launchfile.sh .
 
 RUN chmod +x launchfile.sh
 
-CMD source /ur10_env/catkin_ws/devel/setup.bash && ./launchfile.sh
-# CMD bash
-# set entrypoint
+ENTRYPOINT [ "./launchfile.sh" ]
+
