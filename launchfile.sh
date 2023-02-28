@@ -3,24 +3,6 @@
 source /ur10_env/catkin_ws/devel/setup.bash
 alias python="python3"
 
-# args_array=("$@")
-# robot_ip=${args_array[0]}
-# gripper_ip=${args_array[1]}
-
-# Start the robot driver in the background
-# roslaunch ur_robot_driver ur10_bringup.launch robot_ip:=${robot_ip} kinematics_config:=ur10colors_calibration.yaml &
-
-# # Start the gripper driver in the background
-# roslaunch robotiq_3f_driver listener.launch ip_address:=${gripper_ip} &
-
-# # Start the demo node
-# rosrun demo_node demo_node &
-  
-# # Wait for any process to exit
-# wait -n
-  
-# # Exit with status of process that exited first
-# exit $?
 for argument; do 
     key=${argument%%=*}
     value=${argument#*=}
@@ -54,6 +36,13 @@ fi
 
 echo "wanna start demo node? (y/n)"
 read answer
+
 if [ "$answer" = "y" ]; then
-    rosrun demo_node demo_node
+    rosrun demo_node demo_node &
 fi
+
+# Wait for any process to exit
+wait -n
+  
+# Exit with status of process that exited first
+exit $?
