@@ -35,4 +35,3 @@ COPY launchfile.sh .
 RUN chmod +x launchfile.sh
 
 ENTRYPOINT [ "./launchfile.sh" ]
-
