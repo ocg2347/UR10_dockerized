@@ -8,6 +8,7 @@ import numpy as np
 import time
 from gamepad import Gamepad
 from robotiq_3f_srvs.srv import Move
+import sys
 
 rospy.init_node('gui', anonymous=True)
 pub = rospy.Publisher('radian', Float64MultiArray, queue_size=10)
@@ -17,7 +18,7 @@ ur10_arm = ur_kinematics.URKinematics('ur10')
 
 tool_length = 0.2 #distance from ur10 end and tool center
 
-TASKSPACE_LIMITS = {'x':[-1.29, -0.62],'y':[-0.35, 0.6],'z':[0.24, 0.7]} # very very safe ;)
+TASKSPACE_LIMITS = {'x':[-1.29, -0.62],'y':[-0.35, 0.6],'z':[0.20, 0.7]} # very very safe ;)
 MAX_LIN_SPEED_TOOL = 0.05 # m/s
 ROS_INTERFACE_RATE = 10 # Hz
 
@@ -32,7 +33,7 @@ def get_current_state(return_pose=True):
         pose_matrix= ur10_arm.forward(current_state_lst, 'matrix')
     return current_state_lst, pose_matrix
 
-def MoveArm(target_pose, current_pose=None, current_state=None, dx=0.01, time_from_start=1):
+def MoveArm(target_pose, current_pose=None, current_state=None, dx=0.01, time_from_start=10):
     # theta target is ['x','y','Z'] first two are extrinsic euler angles, last one is intrinsic
     # target_pose and current_pose are 3x4 matrices !!!
     dtheta=(1/2*np.pi)/time_from_start
@@ -102,6 +103,7 @@ def compute_target_pose(current_pose, v, w_x, w_y, w_Z, dt):
 
 
 if __name__=="__main__":
+    output_file = sys.argv[1]
     gamepadType = Gamepad.LogitechRumblePad2
     if not Gamepad.available():
         print('Please connect your gamepad...')
@@ -119,7 +121,9 @@ if __name__=="__main__":
     w_Z = 0.0
     w_x = 0.0
     w_y = 0.0
-    dT  = 1.0
+    dT  = 10.0
+    # open the file
+    output_file_handler = open(output_file, 'w')
     while (not rospy.is_shutdown()) and gamepad.isConnected():
         # eventType, control, value = gamepad.getNextEvent()
         v[0]=-gamepad.axis('LEFT-Y') # [-1,1]
@@ -140,19 +144,23 @@ if __name__=="__main__":
             close_hand_call()
             print("Gripper is closing")
 
-        if gamepad.beenPressed('L2'):
-            w_Z = 1.0
-        elif gamepad.beenReleased('L2'):
-            w_Z = 0.0
-        if w_Z==0.0 and gamepad.beenPressed('R2'):
-            w_Z = -1.0
-        elif gamepad.beenReleased('R2'):
-            w_Z = 0.0
-        w_x = gamepad.axis('RIGHT-Y')*10    
-        # w_y = -gamepad.axis('RIGHT-X')*10
-        w_Z *= 10.0
+        # if gamepad.beenPressed('L2'):
+        #     w_Z = 1.0
+        # elif gamepad.beenReleased('L2'):
+        #     w_Z = 0.0
+        # if w_Z==0.0 and gamepad.beenPressed('R2'):
+        #     w_Z = -1.0
+        # elif gamepad.beenReleased('R2'):
+        #     w_Z = 0.0
+        # w_x = gamepad.axis('RIGHT-Y')*10    
+        # # w_y = -gamepad.axis('RIGHT-X')*10
+        # w_Z *= 10.0
 
         current_state, current_pose = get_current_state()
+        
+        # output_file_handler.write(str(current_state)+'\n')
+        # rospy.loginfo("current position:"+np.array2string(current_pose[:3,-1]))
+
         target_pose = compute_target_pose(current_pose, v, w_x, w_y, w_Z, dt=dT)
         MoveArm(target_pose, current_state=current_state, current_pose=current_pose, time_from_start=dT)
 
