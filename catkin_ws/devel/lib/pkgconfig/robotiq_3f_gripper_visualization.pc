@@ -1,4 +1,4 @@
-prefix=/home/ocg2347/UR10_docker/catkin_ws/devel
+prefix=/home/ur-colors/UR10_dockerized/catkin_ws/devel
 
 Name: robotiq_3f_gripper_visualization
 Description: Description of robotiq_3f_gripper_visualization

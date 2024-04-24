@@ -1,0 +1,8 @@
+prefix=/home/ur-colors/UR10_dockerized/catkin_ws/install
+
+Name: robotiq_3f_description
+Description: Description of robotiq_3f_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: robot_state_publisher rviz xacro joint_state_publisher

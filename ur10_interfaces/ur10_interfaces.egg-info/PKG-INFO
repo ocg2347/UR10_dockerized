@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: ur10-interfaces
+Version: 1.0.0
+Summary: Wrappers for CoLoRs UR10 with Robotiq FT300 and 3F-Gripper
+Author: Bogazici University CoLoRs Lab
+License: MIT License

@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   trajectory_msgs
+  robotiq_3f_srvs
 )
 
 ## System dependencies are found with CMake's conventions

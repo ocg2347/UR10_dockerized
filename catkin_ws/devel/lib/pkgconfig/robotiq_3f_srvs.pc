@@ -1,8 +1,8 @@
-prefix=/home/ocg2347/UR10_docker/catkin_ws/devel
+prefix=/home/ur-colors/UR10_dockerized/catkin_ws/devel
 
 Name: robotiq_3f_srvs
 Description: Description of robotiq_3f_srvs
 Version: 1.0.0
-Cflags: -I/home/ocg2347/UR10_docker/catkin_ws/devel/include
+Cflags: -I/home/ur-colors/UR10_dockerized/catkin_ws/devel/include
 Libs: -L${prefix}/lib 
 Requires: message_generation message_runtime std_msgs message_runtime

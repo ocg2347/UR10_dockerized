@@ -1,4 +1,4 @@
 # generated from genmsg/cmake/pkg-msg-paths.cmake.develspace.in
 
-set(robotiq_2f_gripper_control_MSG_INCLUDE_DIRS "/home/ocg2347/UR10_docker/catkin_ws/src/robotiq/robotiq_2f_gripper_control/msg")
+set(robotiq_2f_gripper_control_MSG_INCLUDE_DIRS "/home/ur-colors/UR10_dockerized/catkin_ws/src/robotiq/robotiq_2f_gripper_control/msg")
 set(robotiq_2f_gripper_control_MSG_DEPENDENCIES )

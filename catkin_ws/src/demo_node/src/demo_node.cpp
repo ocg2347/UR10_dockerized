@@ -4,7 +4,6 @@
 #include "trajectory_msgs/JointTrajectory.h"
 
 trajectory_msgs::JointTrajectory traj;
-trajectory_msgs::JointTrajectoryPoint points_n;
 
 ros::Publisher demo_node_pub ;
   
@@ -42,20 +41,20 @@ int main(int argc, char **argv)
 
   ros::Rate loop_rate(10);
     
-    //traj.header.frame_id = "base_link";
-    traj.joint_names.resize(6);
-    traj.points.resize(1);
+  //traj.header.frame_id = "base_link";
+  traj.joint_names.resize(6);
+  traj.points.resize(1);
 
-    traj.points[0].positions.resize(6);
+  traj.points[0].positions.resize(6);
 
-    traj.joint_names[0] ="elbow_joint";
-    traj.joint_names[1] ="shoulder_lift_joint";
-    traj.joint_names[2] ="shoulder_pan_joint";
-    traj.joint_names[3] ="wrist_1_joint";
-    traj.joint_names[4] ="wrist_2_joint";
-    traj.joint_names[5] ="wrist_3_joint";
+  traj.joint_names[0] ="elbow_joint";
+  traj.joint_names[1] ="shoulder_lift_joint";
+  traj.joint_names[2] ="shoulder_pan_joint";
+  traj.joint_names[3] ="wrist_1_joint";
+  traj.joint_names[4] ="wrist_2_joint";
+  traj.joint_names[5] ="wrist_3_joint";
     
-    demo_node_pub = n.advertise<trajectory_msgs::JointTrajectory>("/scaled_pos_joint_traj_controller/command", 10);
+  demo_node_pub = n.advertise<trajectory_msgs::JointTrajectory>("/scaled_pos_joint_traj_controller/command", 10);
   
   sub = n.subscribe("radian", 10, radianCallback);
 

@@ -67,14 +67,14 @@ set(robotiq_3f_control_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(robotiq_3f_control_SOURCE_PREFIX /home/ocg2347/UR10_docker/catkin_ws/src/robotiq_3f_ros_pkg/robotiq_3f_control)
-  set(robotiq_3f_control_DEVEL_PREFIX /home/ocg2347/UR10_docker/catkin_ws/devel)
+  set(robotiq_3f_control_SOURCE_PREFIX /home/ur-colors/UR10_dockerized/catkin_ws/src/robotiq_3f_ros_pkg/robotiq_3f_control)
+  set(robotiq_3f_control_DEVEL_PREFIX /home/ur-colors/UR10_dockerized/catkin_ws/devel)
   set(robotiq_3f_control_INSTALL_PREFIX "")
   set(robotiq_3f_control_PREFIX ${robotiq_3f_control_DEVEL_PREFIX})
 else()
   set(robotiq_3f_control_SOURCE_PREFIX "")
   set(robotiq_3f_control_DEVEL_PREFIX "")
-  set(robotiq_3f_control_INSTALL_PREFIX /home/ocg2347/UR10_docker/catkin_ws/install)
+  set(robotiq_3f_control_INSTALL_PREFIX /home/ur-colors/UR10_dockerized/catkin_ws/install)
   set(robotiq_3f_control_PREFIX ${robotiq_3f_control_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(robotiq_3f_control_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/ocg2347/UR10_docker/catkin_ws/src/robotiq_3f_ros_pkg/robotiq_3f_control/include " STREQUAL " ")
+if(NOT "/home/ur-colors/UR10_dockerized/catkin_ws/src/robotiq_3f_ros_pkg/robotiq_3f_control/include " STREQUAL " ")
   set(robotiq_3f_control_INCLUDE_DIRS "")
-  set(_include_dirs "/home/ocg2347/UR10_docker/catkin_ws/src/robotiq_3f_ros_pkg/robotiq_3f_control/include")
+  set(_include_dirs "/home/ur-colors/UR10_dockerized/catkin_ws/src/robotiq_3f_ros_pkg/robotiq_3f_control/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/ocg2347/UR10_docker/catkin_ws/src/robotiq_3f_ros_pkg/robotiq_3f_co
         message(FATAL_ERROR "Project 'robotiq_3f_control' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'robotiq_3f_control' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/ocg2347/UR10_docker/catkin_ws/src/robotiq_3f_ros_pkg/robotiq_3f_control/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'robotiq_3f_control' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/ur-colors/UR10_dockerized/catkin_ws/src/robotiq_3f_ros_pkg/robotiq_3f_control/${idir}'.  ${_report}")
     endif()
     _list_append_unique(robotiq_3f_control_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/ocg2347/UR10_docker/catkin_ws/devel/lib;/home/ocg2347/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/ur-colors/UR10_dockerized/catkin_ws/devel/lib;/home/ur-colors/UR10_dockerized/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

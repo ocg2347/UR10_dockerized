@@ -67,14 +67,14 @@ set(ur_robot_driver_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(ur_robot_driver_SOURCE_PREFIX /home/ocg2347/UR10_docker/catkin_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver)
-  set(ur_robot_driver_DEVEL_PREFIX /home/ocg2347/UR10_docker/catkin_ws/devel)
+  set(ur_robot_driver_SOURCE_PREFIX /home/ur-colors/UR10_dockerized/catkin_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver)
+  set(ur_robot_driver_DEVEL_PREFIX /home/ur-colors/UR10_dockerized/catkin_ws/devel)
   set(ur_robot_driver_INSTALL_PREFIX "")
   set(ur_robot_driver_PREFIX ${ur_robot_driver_DEVEL_PREFIX})
 else()
   set(ur_robot_driver_SOURCE_PREFIX "")
   set(ur_robot_driver_DEVEL_PREFIX "")
-  set(ur_robot_driver_INSTALL_PREFIX /home/ocg2347/UR10_docker/catkin_ws/install)
+  set(ur_robot_driver_INSTALL_PREFIX /home/ur-colors/UR10_dockerized/catkin_ws/install)
   set(ur_robot_driver_PREFIX ${ur_robot_driver_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(ur_robot_driver_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/ocg2347/UR10_docker/catkin_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/include;/usr/include;/opt/ros/noetic/include " STREQUAL " ")
+if(NOT "/home/ur-colors/UR10_dockerized/catkin_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/include;/usr/include;/opt/ros/noetic/include " STREQUAL " ")
   set(ur_robot_driver_INCLUDE_DIRS "")
-  set(_include_dirs "/home/ocg2347/UR10_docker/catkin_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/include;/usr/include;/opt/ros/noetic/include")
+  set(_include_dirs "/home/ur-colors/UR10_dockerized/catkin_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/include;/usr/include;/opt/ros/noetic/include")
   if(NOT "https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://wiki.ros.org/ur_robot_driver " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/ocg2347/UR10_docker/catkin_ws/src/Universal_Robots_ROS_Driver/ur_r
         message(FATAL_ERROR "Project 'ur_robot_driver' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'ur_robot_driver' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/ocg2347/UR10_docker/catkin_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'ur_robot_driver' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/ur-colors/UR10_dockerized/catkin_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/${idir}'.  ${_report}")
     endif()
     _list_append_unique(ur_robot_driver_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/ocg2347/UR10_docker/catkin_ws/devel/lib;/home/ocg2347/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/ur-colors/UR10_dockerized/catkin_ws/devel/lib;/home/ur-colors/UR10_dockerized/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

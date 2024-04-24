@@ -1,8 +1,8 @@
-prefix=/home/ocg2347/UR10_docker/catkin_ws/devel
+prefix=/home/ur-colors/UR10_dockerized/catkin_ws/devel
 
 Name: robotiq_3f_control
 Description: Description of robotiq_3f_control
 Version: 0.0.0
-Cflags: -I/home/ocg2347/UR10_docker/catkin_ws/src/robotiq_3f_ros_pkg/robotiq_3f_control/include
+Cflags: -I/home/ur-colors/UR10_dockerized/catkin_ws/src/robotiq_3f_ros_pkg/robotiq_3f_control/include
 Libs: -L${prefix}/lib -lrobotiq_3f_control
 Requires: roscpp sensor_msgs
